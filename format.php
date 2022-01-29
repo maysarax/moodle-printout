@@ -209,28 +209,7 @@ defined('MOODLE_INTERNAL') || die();
 
     public function export_file_extension() {
        
-    
-require('fpdf.php');
 
-$pdf=new FPDF();
-
-$pdf->AliasNbPages();
- 
-//add page automatically for its true parameter
- 
-$pdf->AddPage();
-
-//set font style
-
-$pdf->SetFont('Arial','B',14);
-
-//set the form of pdf
- 
-$pdf->SetFont('Arial','B',6);
-
-$file = time().'.pdf';
-
-$pdf->output($file,'D');
 
 
 
