@@ -10,7 +10,7 @@ function createPDF($content)
         $GLOBALS["pdf_fontsize"] = 12;
 		$GLOBALS["pdf_fontstyle"]='normal';
     }
-	
+	echo '$content';
 	require('htmloutput.php');
 
 	$pdf=new PDF_HTML();
@@ -20,10 +20,10 @@ function createPDF($content)
 
     $pdf->SetFont($GLOBALS["pdf_font"], $GLOBALS["pdf_fontstyle"], $GLOBALS["pdf_fontsize"]);
 
-	$pdf->Write((int) $GLOBALS["pdf_fontsize"] / 2, $content);
-	$htmloutput='';
+	//$pdf->Write((int) $GLOBALS["pdf_fontsize"] / 2, $content);
+	//$htmloutput='';
 	
-	$pdf-> WriteHTML  ("<br><br>$htmloutput");
+	//$pdf-> WriteHTML  ("<br><br>$htmloutput");
     $fname = tempnam($GLOBALS["tmpdir"], "pdf");
     $pdf->Output($fname, false);
  
