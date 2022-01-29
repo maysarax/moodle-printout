@@ -11,14 +11,14 @@ function createPDF($content)
 		$GLOBALS["pdf_fontstyle"]='normal';
     }
 	echo '$content';
-	require('htmloutput.php');
+	//require('htmloutput.php');
 
 	$pdf=new PDF_HTML();
 
     $pdf->AliasNbPages();
     $pdf->AddPage();
 
-    $pdf->SetFont($GLOBALS["pdf_font"], $GLOBALS["pdf_fontstyle"], $GLOBALS["pdf_fontsize"]);
+    //$pdf->SetFont($GLOBALS["pdf_font"], $GLOBALS["pdf_fontstyle"], $GLOBALS["pdf_fontsize"]);
 
 	//$pdf->Write((int) $GLOBALS["pdf_fontsize"] / 2, $content);
 	//$htmloutput='';
