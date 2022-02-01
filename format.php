@@ -205,23 +205,18 @@ defined('MOODLE_INTERNAL') || die();
         $xp .= "</body>\n";
         $xp .= "</html>\n";
 
-      return $xp;
-    }
+
+        $pdf = $xp;
+        $pdf = new FPDF();
+        $pdf->AliasNbPages();//add page automatically for its true parameter       
+        $pdf->AddPage();//set font style
+        $file = time().'.pdf';
+        $pdf->output($file,'D');
+        return $file ;
+        return $xp; 
+      }
   
-
-    function createPDF ()
-    {
-   
-      $pdf=new FPDF();
-      $pdf->AliasNbPages();//add page automatically for its true parameter       
-      $pdf->AddPage();//set font style
-      
-
-      $file = time().'.pdf';
-      $pdf->output($file,'D');
-    }
     
-
     public function export_file_extension() 
     {
 
