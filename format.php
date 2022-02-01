@@ -24,7 +24,7 @@
 
 
 
-require('fpdf.php');
+require('PDF.php');
 defined('MOODLE_INTERNAL') || die();
 
 
@@ -206,14 +206,16 @@ defined('MOODLE_INTERNAL') || die();
         $xp .= "</html>\n";
 
 
-        $pdf = $xp;
-        $pdf = new FPDF();
-        $pdf->AliasNbPages();//add page automatically for its true parameter       
+        //echo $xp;
+        $pdf = new PDF();
+        $pdf->SetFont('Arial','B',15);
+        $pdf->WriteHTML($xp);
+       $pdf->AliasNbPages();//add page automatically for its true parameter       
         $pdf->AddPage();//set font style
         $file = time().'.pdf';
         $pdf->output($file,'D');
-        return $file ;
-        return $xp; 
+       
+        //return $xp; 
       }
   
     
