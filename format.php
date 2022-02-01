@@ -209,23 +209,16 @@ defined('MOODLE_INTERNAL') || die();
     }
   
 
-    function createPDF($xp)
+    function createPDF ()
     {
-        if (!isset($GLOBALS["pdf_font"]))
-         {
-            $GLOBALS["pdf_font"] = 'Arial';
-            $GLOBALS["pdf_fontsize"] = 12;
-            $GLOBALS["pdf_fontstyle"] = 'normal';
-        }
-        $pdf = new FPDF();
-        $pdf->AliasNbPages();
-        $pdf->AddPage();
-        $pdf->SetFont($GLOBALS["pdf_font"], $GLOBALS["pdf_fontstyle"], $GLOBALS["pdf_fontsize"]);
-        $pdf->Write((int) $GLOBALS["pdf_fontsize"] / 2, $text);
-        $fname = tempnam($GLOBALS["tmpdir"], "pdf");
-        $pdf->Output($fname, false);
-     
-        return $fname;
+   
+      $pdf=new FPDF();
+      $pdf->AliasNbPages();//add page automatically for its true parameter       
+      $pdf->AddPage();//set font style
+      
+
+      $file = time().'.pdf';
+      $pdf->output($file,'D');
     }
     
 
