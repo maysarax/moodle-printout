@@ -24,7 +24,7 @@
 
 
 
-
+require('fpdf.php');
 defined('MOODLE_INTERNAL') || die();
 
 
@@ -181,7 +181,8 @@ defined('MOODLE_INTERNAL') || die();
     }
 
 
-    protected function presave_process($content) {
+    protected function presave_process($content) 
+    {
         // Override method to allow us to add printout headers and footers.
 
         global $CFG;
@@ -204,19 +205,35 @@ defined('MOODLE_INTERNAL') || die();
         $xp .= "</body>\n";
         $xp .= "</html>\n";
 
-        return $xp;
+      return $xp;
     }
+  
 
-    public function export_file_extension() {
-       
-
-
-
-
-
-      //return '.html';
+    function createPDF($xp)
+    {
+        if (!isset($GLOBALS["pdf_font"]))
+         {
+            $GLOBALS["pdf_font"] = 'Arial';
+            $GLOBALS["pdf_fontsize"] = 12;
+            $GLOBALS["pdf_fontstyle"] = 'normal';
+        }
+        $pdf = new FPDF();
+        $pdf->AliasNbPages();
+        $pdf->AddPage();
+        $pdf->SetFont($GLOBALS["pdf_font"], $GLOBALS["pdf_fontstyle"], $GLOBALS["pdf_fontsize"]);
+        $pdf->Write((int) $GLOBALS["pdf_fontsize"] / 2, $text);
+        $fname = tempnam($GLOBALS["tmpdir"], "pdf");
+        $pdf->Output($fname, false);
+     
+        return $fname;
     }
-
- 
     
+
+    public function export_file_extension() 
+    {
+
+      //createPDF();
+
+        return '.html';
+    }
 }
