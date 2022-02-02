@@ -24,8 +24,10 @@
 
 
 
-require('writetohtml.php');
-defined('MOODLE_INTERNAL') || die();
+
+ require('writetohtml.php');
+ 
+ defined('MOODLE_INTERNAL') || die();
 
 
 /**
@@ -205,7 +207,7 @@ defined('MOODLE_INTERNAL') || die();
         $xp .= "</body>\n";
         $xp .= "</html>\n";
 
-        $pdf=new PDF();
+        $pdf= new PDF();
         $pdf->AliasNbPages();//add page automatically for its true parameter       
         $pdf->AddPage();//set font style
         $pdf->SetFont('Arial','B',15);
