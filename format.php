@@ -190,7 +190,7 @@
         global $CFG;
 
         // Include CSS
-        //$csslines = file( "{$CFG->dirroot}/question/format/printout/printout.css" );
+       // $csslines = file( "{$CFG->dirroot}/question/format/printout/printout.css" );
         //$css = implode( ' ', $csslines );
 
         $xp =  "<!DOCTYPE html PUBLIC \"-//W3C//DTD printout 1.0 Strict//EN\"\n";
