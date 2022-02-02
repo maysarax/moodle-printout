@@ -1,7 +1,7 @@
 <?php
   
 require('fpdf.php');
-require('helveticab.php');
+
 
 class PDF extends FPDF
 {
@@ -12,8 +12,8 @@ class PDF extends FPDF
 
     function WriteHTML($html)
     {
-        //$this->SetFont('Arial','B',15);
-        $this->SetFont('Helvetica','I',10);
+        $this->SetFont('Arial','B',15);
+       
 
         // HTML parser
         $html = str_replace("\n",' ',$html);
