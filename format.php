@@ -24,7 +24,7 @@
 
 
 
-require('PDF.php');
+require('writetohtml.php');
 defined('MOODLE_INTERNAL') || die();
 
 
@@ -208,10 +208,13 @@ defined('MOODLE_INTERNAL') || die();
 
         //echo $xp;
         $pdf = new PDF();
+      
+        $pdf->AliasNbPages();//add page automatically for its true parameter       
+        $pdf->AddPage();//set font style
+
         $pdf->SetFont('Arial','B',15);
         $pdf->WriteHTML($xp);
-       $pdf->AliasNbPages();//add page automatically for its true parameter       
-        $pdf->AddPage();//set font style
+        
         $file = time().'.pdf';
         $pdf->output($file,'D');
        
@@ -222,7 +225,7 @@ defined('MOODLE_INTERNAL') || die();
     public function export_file_extension() 
     {
 
-      //createPDF();
+      
 
         return '.html';
     }
