@@ -1,7 +1,7 @@
 <?php
 require('fpdf.php');
 
-class PDF_HTML extends FPDF
+class PDF extends FPDF
 {
     var $B=0;
     var $I=0;
