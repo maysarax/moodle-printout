@@ -23,11 +23,11 @@
  */
 
 
-require('writehtml.php');
+
 
 defined('MOODLE_INTERNAL') || die();
 
-
+require('writetohtml.php');
 /**
  * printout question exporter.
  *
@@ -185,10 +185,10 @@ defined('MOODLE_INTERNAL') || die();
         // Override method to allow us to add printout headers and footers.
 
         global $CFG;
-        global $xp;
+
         // Include CSS
-        $csslines = file( "{$CFG->dirroot}/question/format/printout/printout.css" );
-        $css = implode( ' ', $csslines );
+        //$csslines = file( "{$CFG->dirroot}/question/format/printout/printout.css" );
+        //$css = implode( ' ', $csslines );
 
         $xp =  "<!DOCTYPE html PUBLIC \"-//W3C//DTD printout 1.0 Strict//EN\"\n";
         $xp .= "  \"http://www.w3.org/TR/printout1/DTD/printout1-strict.dtd\">\n";
@@ -196,7 +196,7 @@ defined('MOODLE_INTERNAL') || die();
         $xp .= "<head>\n";
         $xp .= "<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\" />\n";
         $xp .= "<style type=\"text/css\">\n";
-        $xp .= $css;
+        //$xp .= $css;
         $xp .= "</style>\n";
         $xp .= "</head>\n";
         $xp .= "<body>\n";
@@ -204,19 +204,22 @@ defined('MOODLE_INTERNAL') || die();
         $xp .= "</body>\n";
         $xp .= "</html>\n";
 
-        $pdf= new PDF_HTML();
+        //return $xp;
 
-        $pdf->AliasNbPages();//add page automatically for its true parameter       
-        $pdf->AddPage();//set font style
-        $pdf->SetFont('Arial','B',15);
 
-        $pdf->WriteHTML($xp);
+     
 
-        $file = time().'.pdf';
-        $pdf->output($file,'D');
+    $pdf=new PDF_HTML();
+    $pdf->SetFont('Arial','',12);
+    $pdf->AddPage();
+    $pdf->WriteHTML($xp);
+
+    $file = time().'.pdf';
+    $pdf->output($file,'D');
+
     }
 
     public function export_file_extension() {
-        return '.html';
+        //return '.html';
     }
 }
