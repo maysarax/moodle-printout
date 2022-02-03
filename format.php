@@ -195,7 +195,7 @@ require('writetohtml.php');
         $xp .= "<html xmlns=\"http://www.w3.org/1999/printout\">\n";
         $xp .= "<head>\n";
         $xp .= "<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\" />\n";
-        $xp .= "<style type=\"text/css\">\n";
+        //$xp .= "<style type=\"text/css\">\n";
         //$xp .= $css;
         $xp .= "</style>\n";
         $xp .= "</head>\n";
