@@ -2,7 +2,7 @@
 <?php
 require('writehtml.php');
 
-$pdf=new PDF();
+$pdf=new PDF_HTML();
 $pdf->AddPage();
 $pdf->SetFont('Arial');
 $pdf->WriteHTML

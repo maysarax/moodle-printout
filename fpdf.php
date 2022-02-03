@@ -6,7 +6,7 @@
 * Date:    2021-08-28                                                          *
 * Author:  Olivier PLATHEY                                                     *
 *******************************************************************************/
-require('helvetica.php');
+//require('helvetica.php');
 define('FPDF_VERSION','1.84');
 
 class FPDF

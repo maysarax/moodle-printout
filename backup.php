@@ -352,8 +352,6 @@ class PDF extends FPDF
         $this->SetTextColor(0);
     }
 }
-
-
 ?>
 
 
